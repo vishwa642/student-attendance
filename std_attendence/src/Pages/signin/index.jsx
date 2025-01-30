@@ -1,17 +1,17 @@
 import React from 'react';
 import { TextField, Button, Typography, Box } from '@mui/material';
 
-const SignUpPage = ({ studentID, setStudentID, password, setPassword, handleSignUp, loginMessage, messageType }) => {
+const SignInPage = ({ email, setEmail, password, setPassword, handleSignIn, loginMessage, messageType }) => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <Typography variant="h5" gutterBottom>Sign Up</Typography>
-      <form onSubmit={handleSignUp}>
+      <Typography variant="h5" gutterBottom>Sign In</Typography>
+      <form onSubmit={handleSignIn}>
         <TextField
-          label="Student ID"
+          label="Email"
           variant="outlined"
           fullWidth
-          value={studentID}
-          onChange={(e) => setStudentID(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           margin="normal"
         />
         <TextField
@@ -24,7 +24,7 @@ const SignUpPage = ({ studentID, setStudentID, password, setPassword, handleSign
           margin="normal"
         />
         <Button type="submit" variant="contained" color="primary" fullWidth>
-          Sign Up
+          Sign In
         </Button>
       </form>
       {loginMessage && (
@@ -36,4 +36,4 @@ const SignUpPage = ({ studentID, setStudentID, password, setPassword, handleSign
   );
 };
 
-export default SignUpPage;
+export default SignInPage;

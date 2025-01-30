@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Container, Box } from '@mui/material';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './Pages/login'
-
+import Login from './Pages/login';
 import Links from './Components/Links';
+import SignInPage from './Pages/signin'; 
+import SignUpPage from './Pages/signup';  
 import Dashboard from './Pages/Dashboard';
+
 function App() {
   const [studentID, setStudentID] = useState('');
   const [password, setPassword] = useState('');
@@ -63,33 +65,53 @@ function App() {
       <Container component="main" maxWidth="xs">
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 4 }}>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Dashboard />
-              }
-            />
+            <Route path="/" element={<Dashboard />} />
             <Route
               path="/Login"
               element={
-                <Login 
+                <Login
                   authMode={authMode}
-                  studentID={studentID} 
-                  setStudentID={setStudentID} 
-                  email={email} 
-                  setEmail={setEmail} 
-                  password={password} 
-                  setPassword={setPassword} 
+                  studentID={studentID}
+                  setStudentID={setStudentID}
+                  email={email}
+                  setEmail={setEmail}
+                  password={password}
+                  setPassword={setPassword}
                   handleSubmit={authMode === 'signUp' ? handleSignUp : authMode === 'signIn' ? handleSignIn : handleLogin}
-                  loginMessage={loginMessage} 
-                  messageType={messageType} 
+                  loginMessage={loginMessage}
+                  messageType={messageType}
                 />
               }
             />
             <Route
-              path="/dashboard"
-              element={<Dashboard />}
+              path="/signIn"
+              element={
+                <SignInPage
+                  email={email}
+                  setEmail={setEmail}
+                  password={password}
+                  setPassword={setPassword}
+                  handleSignIn={handleSignIn}
+                  loginMessage={loginMessage}
+                  messageType={messageType}
+                />
+              }
             />
+            <Route
+              path="/signUp"
+              element={
+                <SignUpPage
+                  studentID={studentID}
+                  setStudentID={setStudentID}
+                  password={password}
+                  setPassword={setPassword}
+                  handleSignUp={handleSignUp}
+                  loginMessage={loginMessage}
+                  messageType={messageType}
+                />
+              }
+            />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
           <Links authMode={authMode} setAuthMode={setAuthMode} handleForgotPassword={handleForgotPassword} />
         </Box>
