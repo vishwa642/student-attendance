@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { Container, Box } from '@mui/material';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './Components/Header';
-import LoginForm from './Components/LoginForm';
-import Links from './Components/Links';
-import HomePage from './Pages/Homepage';
-import LoginPage from './Pages/Login';
-import DashboardPage from './Pages/DashBoard';
+import Login from './Pages/login'
 
+import Links from './Components/Links';
+import Dashboard from './Pages/Dashboard';
 function App() {
   const [studentID, setStudentID] = useState('');
   const [password, setPassword] = useState('');
@@ -65,18 +62,17 @@ function App() {
     <Router>
       <Container component="main" maxWidth="xs">
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 4 }}>
-          <Header authMode={authMode} />
           <Routes>
             <Route
               path="/"
               element={
-                <HomePage />
+                <Dashboard />
               }
             />
             <Route
-              path="/login"
+              path="/Login"
               element={
-                <LoginPage 
+                <Login 
                   authMode={authMode}
                   studentID={studentID} 
                   setStudentID={setStudentID} 
@@ -92,7 +88,7 @@ function App() {
             />
             <Route
               path="/dashboard"
-              element={<DashboardPage />}
+              element={<Dashboard />}
             />
           </Routes>
           <Links authMode={authMode} setAuthMode={setAuthMode} handleForgotPassword={handleForgotPassword} />
