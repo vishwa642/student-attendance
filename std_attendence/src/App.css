@@ -1,0 +1,96 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: hsl(240, 94%, 46%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container for the login form */
+.MuiContainer-root {
+  background-color: #e63e3e;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px hsla(0, 23%, 94%, 0.102);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Header Styling */
+.MuiTypography-h5 {
+  font-weight: bold;
+  color: #dfd6d6;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Form input styling for TextFields */
+.MuiTextField-root {
+  margin-bottom: 16px;
+}
+
+/* Submit button styling */
+.MuiButton-root {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  text-transform: none;
+  width: 100%;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.MuiButton-root:hover {
+  background-color: #45a049;
+}
+
+/* Message styles (success and error) */
+.MuiTypography-body2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.message-success {
+  color: #4CAF50;
+}
+
+.message-error {
+  color: #FF0000;
+}
+
+/* Link styling for switching between login/signup modes */
+.MuiLink-root {
+  color: #4CAF50;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.MuiLink-root:hover {
+  color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .MuiContainer-root {
+    padding: 30px;
+  }
+
+  .MuiTypography-h5 {
+    font-size: 20px;
+  }
+
+  .MuiButton-root {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
